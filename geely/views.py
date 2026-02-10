@@ -38,7 +38,7 @@ class AddExpense(FormView):
     def get_form_class(self):
         if self.category.slug == 'prochee':
             return AddExpenseOtherForm
-        if self.category.slug == 'remont':
+        if self.category.slug == 'remont-to':
             return AddExpenseServiceForm
         return AddExpenseForm
 
@@ -78,7 +78,7 @@ class ExamExpense(FormView):
     def get_form_class(self):
         if self.category.slug == 'prochee':
             return AddExpenseOtherForm
-        if self.category.slug == 'remont':
+        if self.category.slug == 'remont-to':
             return AddExpenseServiceForm
         return AddExpenseForm
 
@@ -132,7 +132,7 @@ class ExamExpense(FormView):
                 f"<b>🛒   Покупка:</b>   {expense.product.capitalize()}\n"
                 f"<b>💸   Стоимость:</b>   {expense.price} руб."
             )
-        elif self.category.slug == 'remont':
+        elif self.category.slug == 'remont-to':
             message = (
                 "🚨 <b><u>НОВЫЙ РАСХОД ПО ОБСЛУЖИВАНИЮ</u></b> 🚨\n\n"
                 f"<b>📆   Дата:</b>   {expense.date.strftime('%d.%m.%Y г.')}\n"
